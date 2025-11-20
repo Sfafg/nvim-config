@@ -1,6 +1,6 @@
 -- Set SumatraPDF as the PDF viewer
-vim.g.vimtex_view_method = 'general'  -- Use general method
-vim.g.vimtex_view_general_viewer = 'SumatraPDF.exe'  -- Correct path to SumatraPDF
+vim.g.vimtex_view_method = 'zathura'  -- Use general method
+vim.g.vimtex_view_general_viewer = 'zathura'  -- Correct path to SumatraPDF
 vim.g.vimtex_view_general_options = '-reuse-instance -forward-search %f %l'  -- Optional flags for forward search
 
 -- Set latexmk as the compiler method

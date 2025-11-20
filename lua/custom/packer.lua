@@ -14,10 +14,7 @@ return require("packer").startup(function(use)
 
 	use({
 		"ellisonleao/gruvbox.nvim",
-		as = "gruvbox",
-		config = function()
-			vim.cmd("colorscheme palenight")
-		end,
+		as = "gruvbox"
 	})
 
     use({ "nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" } })
@@ -34,7 +31,7 @@ return require("packer").startup(function(use)
     use("stevearc/conform.nvim")
     use("hrsh7th/cmp-buffer") -- Buffer completions
     use("hrsh7th/cmp-path") -- Path completions
-    use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } })
+    use({"rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } })
     use("theHamsta/nvim-dap-virtual-text") -- Virtual text for variable values
     use("jay-babu/mason-nvim-dap.nvim") -- Auto-install DAP adapters
     use({ "Civitasv/cmake-tools.nvim", requires = { "nvim-lua/plenary.nvim" } })
@@ -44,14 +41,28 @@ return require("packer").startup(function(use)
     use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
     use("terrortylor/nvim-comment")
     use("terryma/vim-multiple-cursors")
-    use ({ 'jakemason/ouroboros', requires =  {'nvim-lua/plenary.nvim'}} )
+    use( { 'jakemason/ouroboros', requires = { 'nvim-lua/plenary.nvim' }, ft = { 'cpp', 'glsl', 'c' } , config= function()
+        require('ouroboros').setup({
+            extension_preferences_table = {
+                  vert = {frag = 1 },
+                  frag = {vert = 1 },
+                  c = {h = 2, hpp = 1},
+                  h = {c = 2, cpp = 3},
+                  cpp = {hpp = 2, h = 3},
+                  hpp = {cpp = 1, c = 2},
+            },
+            switch_to_open_pane_if_possible = true,
+        })
+    end})
     use("lervag/vimtex")
     -- use("airblade/vim-gitgutter")
     use("rbong/vim-flog")
     use("junegunn/vim-easy-align")
     use("ray-x/lsp_signature.nvim")
-    use('drewtempelmeyer/palenight.vim')
+    use({'drewtempelmeyer/palenight.vim'})
     use( "stevearc/oil.nvim" )
     use("folke/zen-mode.nvim")
     use("vim-scripts/DoxygenToolkit.vim")
+    use({ "github/copilot.vim" })
 end)
+

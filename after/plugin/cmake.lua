@@ -15,10 +15,7 @@ function _G.init()
         --       ${kitGenerator}
         --       ${variant:xx}
         cmake_build_directory = function()
-            if osys.iswin32 then
-                return "build\\${variant:buildType}"
-            end
-            return "build/${variant:buildType}"
+            return "build"
         end, -- this is used to specify generate directory for cmake, allows macro expansion, can be a string or a function returning the string, relative to cwd.
         cmake_run_target_args = {
             working_directory = vim.fn.getcwd()  -- Uses the current Neovim directory

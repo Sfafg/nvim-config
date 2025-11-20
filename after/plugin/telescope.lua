@@ -7,6 +7,7 @@ require('telescope').setup{
     file_ignore_patterns = {
       "node_modules",      -- ignore node_modules
       "%.git/",            -- ignore .git directory
+      ".build/",            -- ignore .git directory
       "%.lock",            -- ignore .lock files
       "%.jpg", "%.png",    -- ignore image files
       "__pycache__",       -- ignore Python cache

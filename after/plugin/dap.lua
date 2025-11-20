@@ -7,11 +7,6 @@ dap.adapters.cppdbg = {
   options={detached=false },
 setupCommands = {
     {
-        text = "-enable-pretty-printing",
-        description = "enable pretty printing",
-        ignoreFailures = false
-    },
-    {
         text = "catch throw",
         description = "break on C++ throw",
         ignoreFailures = false
