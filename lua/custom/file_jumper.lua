@@ -39,7 +39,7 @@ local function jump_to_index(index)
     local column_number = list[index][3]
 
     vim.cmd("silent! edit " .. file_dir)
-    vim.api.nvim_win_set_cursor(0, {line_number, column_number}) 
+    -- vim.api.nvim_win_set_cursor(0, {line_number, column_number}) 
 
 end
 
