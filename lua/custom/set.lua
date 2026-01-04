@@ -1,6 +1,6 @@
 vim.opt.nu = true
 vim.opt.relativenumber = true
-vim.opt.clipboard=unnamedplus
+vim.opt.clipboard = unnamedplus
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -25,8 +25,22 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 vim.opt.colorcolumn = "1000"
 vim.g.mapleader = " "
--- vim.o.hidden = false
-vim.cmd("colorscheme palenight")
+vim.o.hidden = true
+vim.o.autoread = true
 
 vim.g.dotnet_errors_only = true
-vim.g.dotnet_show_project_file= false
+vim.g.dotnet_show_project_file = false
+
+if vim.g.neovide then
+	vim.o.guifont = "JetBrainsMono Nerd Font Mono:h14"
+	vim.g.neovide_opacity = 0.94
+	vim.g.neovide_cursor_animation_length = 0.07
+	vim.g.neovide_cursor_trail_size = 0
+	vim.g.neovide_cursor_animate_in_insert_mode = false
+	vim.g.neovide_cursor_animate_command_line = false
+
+	vim.g.neovide_position_animation_length = 0.1
+	vim.g.neovide_scroll_animation_length = 0.1
+	vim.g.neovide_scroll_animation_far_lines = 0.1
+	vim.g.neovide_frameless = true
+end

@@ -202,4 +202,17 @@ M.open_notes_explorer = function()
 	vim.cmd("Hex " .. notes_dir) -- Opens the explorer in the current directory
 end
 
+vim.keymap.set("n", "<leader>nn", function()
+	require("custom.sticky_notes").toggle_note()
+end, { desc = "Toggle Sticky Note" })
+
+vim.keymap.set("n", "<leader>nf", function()
+	require("custom.sticky_notes").pick_note()
+end, { desc = "Pick or Create Sticky Note" })
+
+vim.keymap.set("n", "<leader>ne", function()
+	require("custom.sticky_notes").open_notes_explorer()
+end, { desc = "Toggle Sticky Note" })
+
+
 return M

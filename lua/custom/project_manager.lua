@@ -346,7 +346,7 @@ local run_job = 0
 local function project_run()
     local type = get_project_type()
     if type == "cmake" then
-        require("cmake-tools").run()
+        require("cmake-tools").run("*")
     elseif type == "dotnet" then
         -- vim.cmd("terminal dotnet run")
         vim.cmd(11 .. " split")
@@ -366,10 +366,21 @@ local function project_run()
     end
 end
 
+local function project_build_and_run()
+    local type = get_project_type()
+    if type == "cmake" then
+        project_run()
+    else 
+        if project_build() then
+            project_run()
+        end
+    end
+end
+
 local function project_debug()
     local type = get_project_type()
     if type == "cmake" then
-        require("cmake-tools").debug()
+        require("cmake-tools").debug("*")
     end
 end
 
@@ -403,7 +414,7 @@ end, { desc = "Save project session" })
 
 vim.keymap.set("n", "<S-F5>", project_build, { desc = "Build project" })
 vim.keymap.set("n", "<C-F5>", project_debug, { desc = "Debug project" })
-vim.keymap.set("n", "<F5>", function() if project_build() then project_run()end end, { desc = "Build and Run project" })
+vim.keymap.set("n", "<F5>", project_build_and_run, { desc = "Build and Run project" })
 vim.keymap.set("n", "<F2>", project_f2, { desc = "Select Build Type" })
 vim.keymap.set("n", "<F3>", project_f3, { desc = "Select Launch Target" })
 vim.keymap.set("n", "<F4>", project_f4, { desc = "Select Build Target" })
