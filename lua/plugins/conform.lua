@@ -1,7 +1,7 @@
 return {
 	"stevearc/conform.nvim",
 	config = function()
-		local format_file = vim.fn.stdpath("config") .. "lua/plugins/files/ccpp.clang-format"
+		local format_file = vim.fn.stdpath("config") .. "/lua/plugins/files/ccpp.clang-format"
 
 		vim.cmd("hi Normal ctermbg=none guibg=none")
 		require("conform").setup({

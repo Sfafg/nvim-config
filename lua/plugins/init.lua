@@ -1,6 +1,6 @@
 return {
 	-- require("plugins.inlay-hints"),
-	-- require("plugins.llm"),
+	require("plugins.llama"),
 	require("plugins.DoxygenToolkit"),
 	require("plugins.auto-pairs"),
 	require("plugins.cmake"),
@@ -10,7 +10,6 @@ return {
 	require("plugins.fugitive"),
 	require("plugins.gruvbox"),
 	require("plugins.lsp"),
-	require("plugins.lsp_signature"),
 	require("plugins.mason"),
 	require("plugins.mini"),
 	require("plugins.nvim-cmp"),

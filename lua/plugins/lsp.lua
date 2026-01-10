@@ -8,7 +8,6 @@ return {
 			"L3MON4D3/LuaSnip",
 			"saadparwaiz1/cmp_luasnip",
 			"hrsh7th/cmp-nvim-lsp",
-			"ray-x/lsp_signature.nvim",
 			"nvim-telescope/telescope.nvim",
 		},
 		opts = {
@@ -43,13 +42,6 @@ return {
 				vim.lsp.config(lsp, opts)
 				vim.lsp.enable(lsp)
 			end
-
-			require("lsp_signature").on_attach({
-				bind = true, -- show automatically
-				floating_window = true,
-				hint_enable = true,
-				handler_opts = { border = "rounded" },
-			})
 		end,
 	},
 }
