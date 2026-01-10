@@ -1,11 +1,10 @@
 return {
-	-- require("plugins.inlay-hints"),
-	require("plugins.llama"),
+	require("plugins.dap"),
+	require("plugins.luasnip"),
 	require("plugins.DoxygenToolkit"),
 	require("plugins.auto-pairs"),
 	require("plugins.cmake"),
 	require("plugins.conform"),
-	require("plugins.dap"),
 	require("plugins.easy-align"),
 	require("plugins.fugitive"),
 	require("plugins.gruvbox"),
@@ -25,4 +24,7 @@ return {
 	require("plugins.vim-multiple-cursors"),
 	require("plugins.vimtex"),
 	require("plugins.vim-flog"),
+	require("plugins.waka-time"),
+	require("plugins.noice"),
+	require("plugins.toggleterm"),
 }

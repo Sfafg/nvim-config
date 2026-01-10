@@ -3,9 +3,11 @@ return {
 	dependencies = {
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
+		"rafamadriz/friendly-snippets",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
+		"hrsh7th/cmp-cmdline",
 		"onsails/lspkind.nvim",
 		"hrsh7th/cmp-calc",
 	},
@@ -16,21 +18,10 @@ return {
 
 		cmp.setup({
 			experimental = {
-				ghost_text = false,
+				ghost_text = true,
 			},
 
-			view = { entries = "wildmenu" },
-
-			formatting = {
-				format = lspkind.cmp_format({
-					mode = "symbol_text",
-					menu = {
-						luasnip = "[Luasnip]",
-						path = "[Path]",
-						calc = "[Calc]",
-					},
-				}),
-			},
+			-- view = { entries = "wildmenu" },
 
 			snippet = {
 				expand = function(args)
@@ -42,12 +33,12 @@ return {
 				["<Tab>"] = cmp.mapping(function(fallback)
 					if cmp.visible() then
 						cmp.select_next_item()
-					elseif luasnip.expand_or_jumpable() then
+					elseif luasnip.expand_or_locally_jumpable() then
 						luasnip.expand_or_jump()
 					else
 						fallback()
 					end
-				end, { "i", "s" }),
+				end, { "i", "s", expr = true, silent = true }),
 				["<S-Tab>"] = cmp.mapping(function(fallback)
 					if cmp.visible() then
 						cmp.select_prev_item()
@@ -65,6 +56,19 @@ return {
 				{ name = "path" },
 				{ name = "calc" },
 			},
+		})
+		cmp.setup.cmdline(":", {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = cmp.config.sources({
+				{ name = "path" },
+			}, {
+				{
+					name = "cmdline",
+					option = {
+						ignore_cmds = { "Man", "!" },
+					},
+				},
+			}),
 		})
 	end,
 }

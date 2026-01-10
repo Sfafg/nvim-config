@@ -32,6 +32,7 @@ vim.g.dotnet_errors_only = true
 vim.g.dotnet_show_project_file = false
 
 if vim.g.neovide then
+	vim.api.nvim_set_hl(0, "Normal", { bg = "#202020" })
 	vim.o.guifont = "JetBrainsMono Nerd Font Mono:h14"
 	vim.g.neovide_opacity = 0.94
 	vim.g.neovide_cursor_animation_length = 0.07
