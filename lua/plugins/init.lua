@@ -1,5 +1,6 @@
 return {
 	require("plugins.dap"),
+	require("plugins.buffer-close"),
 	require("plugins.luasnip"),
 	require("plugins.DoxygenToolkit"),
 	require("plugins.auto-pairs"),

@@ -1,9 +1,6 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>v", "<C-v>")
 
-vim.keymap.set("n", "<Tab>", ":bprev<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<S-Tab>", ":bnext<CR>", { noremap = true, silent = true })
-
 vim.keymap.set("n", "<leader>j", ":cnext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>k", ":cprev<CR>", { noremap = true, silent = true })
 
