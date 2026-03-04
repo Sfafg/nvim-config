@@ -1,33 +1,38 @@
-return {
-	require("plugins.dap"),
-	require("plugins.buffer-close"),
-	require("plugins.luasnip"),
-	require("plugins.DoxygenToolkit"),
-	require("plugins.auto-pairs"),
-	require("plugins.cmake"),
-	require("plugins.conform"),
-	require("plugins.easy-align"),
-	require("plugins.fugitive"),
-	require("plugins.gruvbox"),
-	require("plugins.lsp"),
-	require("plugins.mason"),
-	require("plugins.mini"),
-	require("plugins.nvim-cmp"),
-	require("plugins.nvim-comment"),
-	require("plugins.nvim-ts-autotag"),
-	require("plugins.oil"),
-	require("plugins.telescope"),
-	require("plugins.palenight"),
-	require("plugins.zenbones"),
-	require("plugins.catppuccin"),
-	require("plugins.treesitter"),
-	require("plugins.ufo"),
-	require("plugins.undotree"),
-	require("plugins.vim-easy-align"),
-	require("plugins.vim-multiple-cursors"),
-	require("plugins.vimtex"),
-	require("plugins.vim-flog"),
-	require("plugins.waka-time"),
-	require("plugins.noice"),
-	require("plugins.toggleterm"),
-}
+local plugins = {}
+require("plugins.sticky_notes")
+require("plugins.file_jumper")
+table.insert(plugins, require("plugins.dap"))
+table.insert(plugins, require("plugins.buffer-close"))
+table.insert(plugins, require("plugins.luasnip"))
+table.insert(plugins, require("plugins.DoxygenToolkit"))
+table.insert(plugins, require("plugins.auto-pairs"))
+table.insert(plugins, require("plugins.conform"))
+table.insert(plugins, require("plugins.easy-align"))
+table.insert(plugins, require("plugins.fugitive"))
+table.insert(plugins, require("plugins.gruvbox"))
+table.insert(plugins, require("plugins.lsp"))
+table.insert(plugins, require("plugins.mason"))
+table.insert(plugins, require("plugins.mini"))
+table.insert(plugins, require("plugins.nvim-cmp"))
+table.insert(plugins, require("plugins.nvim-comment"))
+table.insert(plugins, require("plugins.nvim-ts-autotag"))
+table.insert(plugins, require("plugins.oil"))
+table.insert(plugins, require("plugins.telescope"))
+table.insert(plugins, require("plugins.palenight"))
+table.insert(plugins, require("plugins.zenbones"))
+table.insert(plugins, require("plugins.catppuccin"))
+table.insert(plugins, require("plugins.treesitter"))
+table.insert(plugins, require("plugins.ufo"))
+table.insert(plugins, require("plugins.undotree"))
+table.insert(plugins, require("plugins.vim-easy-align"))
+table.insert(plugins, require("plugins.vim-multiple-cursors"))
+table.insert(plugins, require("plugins.vimtex"))
+table.insert(plugins, require("plugins.vim-flog"))
+table.insert(plugins, require("plugins.waka-time"))
+table.insert(plugins, require("plugins.noice"))
+table.insert(plugins, require("plugins.toggleterm"))
+table.insert(plugins, require("plugins.lualine"))
+require("plugins.project_manager").setup()
+table.insert(plugins, require("plugins.cmake"))
+require("plugins.colorscheme_picker")
+return plugins
