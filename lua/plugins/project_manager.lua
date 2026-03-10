@@ -10,6 +10,10 @@ end
 local function get_project_type()
 	local dir = vim.fn.getcwd()
 
+	if vim.fn.filereadable(dir .. "/conanfile.py") == 1 then
+		return "conan"
+	end
+
 	if vim.fn.filereadable(dir .. "/CMakeLists.txt") == 1 then
 		return "cmake"
 	end
@@ -38,7 +42,7 @@ local function load_keymaps()
 
 	vim.keymap.set("n", "<leader>jj", function()
 		local type = get_project_type()
-		if type == "cmake" then
+		if type == "cmake" or type == "conan" then
 			jumper.jump_to_alternative_function(function(buff_name)
 				local name = vim.fn.fnamemodify(buff_name, ":r")
 				local extension = vim.fn.fnamemodify(buff_name, ":e")
@@ -233,10 +237,6 @@ local function open_project(project)
 	if get_project_type() == "cmake" then
 		require("cmake-tools").select_cwd(cwd)
 		require("cmake-tools").select_build_dir(cwd .. "/build")
-
-		if _G and _G.init then
-			_G.init()
-		end
 	end
 end
 
@@ -394,6 +394,8 @@ local function project_build()
 	local type = get_project_type()
 	if type == "cmake" then
 		require("cmake-tools").build("*")
+	elseif type == "conan" then
+		vim.cmd("!conan build --settings=build_type=Debug")
 	elseif type == "latex" then
 		vim.cmd("VimtexCompile")
 	elseif type == "dotnet" then
@@ -416,6 +418,8 @@ local function project_run()
 	local type = get_project_type()
 	if type == "cmake" then
 		require("cmake-tools").run("*")
+	elseif type == "conan" then
+		vim.cmd("!build/Debug/generators/main/kod-craft-2")
 	elseif type == "dotnet" then
 		-- vim.cmd("terminal dotnet run")
 		vim.cmd(11 .. " split")
